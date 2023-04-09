@@ -1,0 +1,44 @@
+﻿@model CustomerEditModel
+
+<h1 class="mt-4">Müşteriyi Düzenle</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-action="CustomerList" asp-controller="Customer">Müşteriler</a></li>
+
+</ol>
+<div class="card mb-4">
+    <div class="card-body">
+        Müşteri geçmişi, please visit the
+        <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+        .
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <form method="post" asp-antiforgery="false">
+            <div class="mb-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="TC" class="form-label ">T.C.</label>
+                    <input asp-for="TC" class="form-control mb-3" placeholder="11111111111" />
+                    <span asp-validation-for="TC" class="text-danger small"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label">AD</label>
+                    <input asp-for="Name" class="form-control  mb-3" placeholder="İsim giriniz..." />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Surname" class="form-label">AD</label>
+                    <input asp-for="Surname" class="form-control  mb-3" placeholder="Soyad giriniz..." />
+                    <span asp-validation-for="Surname" class="text-danger small"></span>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success mb-3">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@using DenemeRentaCar.Entities;
+@model List<Colour>
+
+<h1 class="mt-4">Renkler</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-action="ColourCreate" asp-controller="Colour">Yeni Renk Ekle</a></li>
+</ol>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Renk Listesi
+    </div>
+
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (Colour colour in Model)
+                {
+                    <tr>
+                        <th> <a asp-action="ColourEdit" asp-route-colourId="@colour.Id">@colour.Name</a></th>
+                        <th>
+                            <a asp-action="ColourDelete" asp-route-colourId="@colour.Id" class="btn btn-danger btn-sm" onclick="return confirm('Rengi silmek istediğinize emin misiniz?')">Sil</a>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

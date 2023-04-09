@@ -1,0 +1,25 @@
+﻿@model ColourEditModel
+
+<h1 class="mt-4">Renk Düzenle</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-action="ColourList" asp-controller="Colour">Renkler</a></li>
+
+</ol>
+
+<div class="row">
+    <div class="col-4">
+        <form method="post" asp-antiforgery="false">
+            <div class="mb-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label ">Renk Adı</label>
+                    <input asp-for="Name" class="form-control mb-3" placeholder="Siyah, Beyaz, Kırmızı" />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success mb-3">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>

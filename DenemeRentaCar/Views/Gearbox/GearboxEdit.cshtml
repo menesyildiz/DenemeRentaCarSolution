@@ -1,0 +1,25 @@
+﻿@model GearboxEditModel
+
+<h1 class="mt-4">Vites Tipi Düzenle</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-action="GearboxList" asp-controller="Gearbox">Vites Tipleri</a></li>
+
+</ol>
+
+<div class="row">
+    <div class="col-4">
+        <form method="post" asp-antiforgery="false">
+            <div class="mb-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="Type" class="form-label ">Vites Tipi</label>
+                    <input asp-for="Type" class="form-control mb-3" placeholder="Otomatik, Yarı Otomatik, Manuel" />
+                    <span asp-validation-for="Type" class="text-danger small"></span>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success mb-3">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>

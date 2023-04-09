@@ -1,0 +1,71 @@
+﻿@using DenemeRentaCar.Entities;
+@model List<Car>
+
+
+<h1 class="mt-4">Araç Listesi</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-action="CarCreate" asp-controller="Car">Yeni Araç Ekle</a></li>
+</ol>
+
+<div class="card mb-4">
+    <div class="card-body">
+        DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+        <a target="_blank" href="https://datatables.net/">official DataTables documentation.</a>
+
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Araç Listesi
+    </div>
+
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>Plaka</th>
+                    <th>Model</th>
+                    <th>Marka</th>
+                    <th>Araç Sınıfı</th>
+                    <th>Yakıt</th>
+                    <th>Vites</th>
+                    <th>Renk</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Plaka</th>
+                    <th>Model</th>
+                    <th>Marka</th>
+                    <th>Araç Sınıfı</th>
+                    <th>Yakıt</th>
+                    <th>Vites</th>
+                    <th>Renk</th>
+                    <th></th>
+
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (Car car in Model)
+                {
+                    <tr>
+
+                        <th> <a asp-action="CarEdit" asp-route-carId="@car.Id">@car.Plate</a></th>
+                        <th>@car.Name</th>
+                        <th>@car.Brand.Name</th>
+                        <th>@car.Category</th>
+                        <th>@car.Fuel.Name</th>
+                        <th>@car.Gearbox.Type</th>
+                        <th>@car.Colour.Name</th>
+                        <th>
+                            <a asp-action="CarDelete" asp-route-carId="@car.Id" class="btn btn-danger btn-sm" onclick="return confirm('Araç kaydını silmek istediğinize emin misiniz?')">Sil</a>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿@using DenemeRentaCar.Entities;
+@model List<Brand>
+
+<h1 class="mt-4">Markalar</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-action="BrandCreate" asp-controller="Brand">Yeni Marka Ekle</a></li>
+</ol>
+
+<div class="card mb-4">
+    <div class="card-body">
+        DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+        <a target="_blank" href="https://datatables.net/">official DataTables documentation.</a>
+
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Marka Listesi
+    </div>
+
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (Brand brand in Model)
+                {
+                    <tr>
+                        <th> <a asp-action="BrandEdit" asp-route-brandId="@brand.Id">@brand.Name</a></th>
+                        <th>@brand.Description</th>
+                        <th>
+                            <a asp-action="BrandDelete" asp-route-brandId="@brand.Id" class="btn btn-danger btn-sm" onclick="return confirm('Markayı silmek istediğinize emin misiniz?')">Sil</a>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

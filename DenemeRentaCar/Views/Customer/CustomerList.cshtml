@@ -1,0 +1,57 @@
+﻿@using DenemeRentaCar.Entities;
+@model List<Customer>
+
+<h1 class="mt-4">Müşteriler</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-action="CustomerCreate" asp-controller="Customer">Yeni Müşteri Oluştur</a></li>
+</ol>
+
+<div class="card mb-4">
+    <div class="card-body">
+        DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+        <a target="_blank" href="https://datatables.net/">official DataTables documentation.</a>
+
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Müşteri Listesi
+    </div>
+
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>T.C.</th>
+                    <th>AD</th>
+                    <th>SOYAD</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>T.C.</th>
+                    <th>AD</th>
+                    <th>SOYAD</th>
+                    <th></th>
+
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (Customer customer in Model)
+                {
+                    <tr>
+                        <th> <a asp-action="CustomerEdit" asp-route-customerId="@customer.Id">@customer.TC</a></th>
+                        <th>@customer.Name</th>
+                        <th>@customer.Surname</th>
+                        <th>
+                            <a asp-action="CustomerDelete" asp-route-customerId="@customer.Id" class="btn btn-danger btn-sm" onclick="return confirm('Müşteriyi silmek istediğinize emin misiniz?')">Sil</a>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@model BrandNewModel
+
+<h1 class="mt-4">Marka Ekle</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-action="BrandList" asp-controller="Brand">Markalar</a></li>
+
+</ol>
+<div class="card mb-4">
+    <div class="card-body">
+        Araç modeli kaydedebilmek için ilk önce marka tanımlayınız, please visit the
+        <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+        .
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <form method="post" asp-antiforgery="false">
+            <div class="mb-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label ">Marka Adı</label>
+                    <input asp-for="Name" class="form-control mb-3" placeholder="BMW, Mercedes, Jeep" />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Description" class="form-label">Açıklama</label>
+                    <input asp-for="Description" class="form-control  mb-3" placeholder="Açıklama giriniz..." />
+                    <span asp-validation-for="Description" class="text-danger small"></span>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success mb-3">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>

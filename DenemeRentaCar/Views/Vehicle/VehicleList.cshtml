@@ -1,0 +1,65 @@
+﻿@using DenemeRentaCar.Entities;
+@model List<Car>
+
+<h1 class="mt-4">Binek Araç Listesi</h1>
+
+<div class="card mb-4">
+    <div class="card-body">
+        DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+        <a target="_blank" href="https://datatables.net/">official DataTables documentation.</a>
+
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+       Binek Araç Listesi
+    </div>
+
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>Plaka</th>
+                    <th>Model</th>
+                    <th>Marka</th>
+                    <th>Yakıt</th>
+                    <th>Vites</th>
+                    <th>Durumu</th>
+                    <th>Teslim Tarihi</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Plaka</th>
+                    <th>Model</th>
+                    <th>Marka</th>
+                    <th>Yakıt</th>
+                    <th>Vites</th>
+                    <th>Durumu</th>
+                    <th>Teslim Tarihi</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (Car car in Model)
+                {
+                    <tr>
+                        <th>@car.Plate</th>
+                        <th>@car.Name</th>
+                        <th>@car.Brand.Name</th>
+                        <th>@car.Fuel.Name</th>
+                        <th>@car.Gearbox.Type</th>
+                        <th>@car.Rented</th>
+                        <th>@car.DeliveryDate</th>
+                        <th>
+                            <a asp-action="VehicleRent" asp-route-carId="@car.Id" class="btn btn-success btn-sm" onclick="return confirm('Seçtiğiniz araç için kiralama işlemi yapmak istediğinize emin misiniz?')">Kirala</a>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
